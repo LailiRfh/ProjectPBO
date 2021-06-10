@@ -1,0 +1,63 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DrinkOrderWPF"
+        xmlns:Collections="clr-namespace:System.Collections;assembly=System.Collections.NonGeneric" x:Class="DrinkOrderWPF.MainWindow"
+        mc:Ignorable="d"
+        Title="Drink Order" Height="500" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid RenderTransformOrigin="0.512,0.579" Margin="10,-21,0,0" HorizontalAlignment="Left" Width="396" Height="416" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox x:Name="ComboBox_DrinkCategories" Margin="102,27,143,0" Height="22" VerticalAlignment="Top" SelectionChanged="ComboBox_DrinkCategories_SelectionChanged">
+            <ComboBox.ItemsSource>
+                <Collections:SortedList/>
+            </ComboBox.ItemsSource>
+        </ComboBox>
+        <CheckBox x:Name="CheckBox_IsCarbonated" Content="Carbonated" Margin="295,31,10,0" Height="16" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CheckBox_IsAlcoholic" Content="Alcoholic" Margin="295,52,10,0" Height="19" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+        <Label x:Name="Label_AlcoholContent" Content="Alcohol Content %:" Margin="112,95,174,0" Height="26" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label Content="Drink Category:" Margin="5,24,301,0" Height="26" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ComboBox_DrinkTypes" Margin="102,52,143,0" Height="22" VerticalAlignment="Top" IsEnabled="False" SelectionChanged="ComboBox_DrinkTypes_SelectionChanged">
+            <ComboBox.ItemsSource>
+                <Collections:SortedList/>
+            </ComboBox.ItemsSource>
+        </ComboBox>
+        <Label Content="Drink Type:" Margin="29,49,298,0" Height="26" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBox_AlcoholContent" HorizontalAlignment="Left" Margin="225,99,0,0" Text="0" TextWrapping="Wrap" Width="54" Height="18" VerticalAlignment="Top" Visibility="Hidden" PreviewTextInput="TextBox_AlcoholContent_PreviewTextInput"/>
+        <Grid Margin="1,262,-21,0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="#FF179AC8" BorderThickness="2" Margin="50,2,0,0" RenderTransformOrigin="0.938,0.563" HorizontalAlignment="Left" Width="327" Height="92" VerticalAlignment="Top" >
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-0.364"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-0.451"/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+            </Border>
+        </Grid>
+        <TextBox x:Name="TextBox_Results" BorderThickness="0" IsReadOnly="True" TextWrapping="Wrap" Margin="53,266,24,0" Height="88" VerticalAlignment="Top" AcceptsReturn="True"/>
+        <Label Content="Result:" Margin="5,278,0,28" RenderTransformOrigin="1.062,0.661" HorizontalAlignment="Left" Width="48"/>
+        <ListBox x:Name="ListBox_Fruits" Margin="52,128,24,196" SelectionMode="Multiple" IsEnabled="False">
+            <ListBox.ItemsSource>
+                <Collections:SortedList/>
+            </ListBox.ItemsSource>
+        </ListBox>
+        <Label Content="Fruits:" Margin="6,129,347,0" Height="26" VerticalAlignment="Top"/>
+        <Button x:Name="Button_Build" Content="Add Drink&#xA;" Margin="65,235,0,0" FontStyle="Normal" FontWeight="SemiBold" Foreground="Black" Background="#FF99D1AD" HorizontalAlignment="Left" Width="70" Height="22" VerticalAlignment="Top" Click="Button_Build_Click" IsEnabled="False"/>
+        <Label x:Name="Label_CurrentDrinkAmount" Content="You currently have 0 drinks." HorizontalAlignment="Left" Margin="220,235,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.017,0.271"/>
+        <Button x:Name="Button_Clear" Content="Clear" HorizontalAlignment="Left" Margin="65,368,0,0" VerticalAlignment="Top" Background="#FFF76161" Click="Button_Clear_Click" Width="63"/>
+    </Grid>
+</Window>
